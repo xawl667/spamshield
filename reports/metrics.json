@@ -1,0 +1,74 @@
+{
+  "dataset": {
+    "path": "data/processed/sms_clean.csv",
+    "n_total": 5160,
+    "n_train": 4128,
+    "n_test": 1032,
+    "repartition_totale": {
+      "legitime": 4518,
+      "spam": 642
+    },
+    "repartition_test": {
+      "legitime": 904,
+      "spam": 128
+    }
+  },
+  "split": {
+    "test_size": 0.2,
+    "stratify": "label",
+    "random_state": 42
+  },
+  "parametres_modele": {
+    "tfidf": {
+      "lowercase": true,
+      "ngram_range": [
+        1,
+        2
+      ],
+      "min_df": 2,
+      "sublinear_tf": true
+    },
+    "multinomial_nb": {
+      "alpha": 0.1
+    },
+    "baseline": {
+      "strategy": "most_frequent"
+    },
+    "note": "Hyperparamètres fixés a priori, non réglés sur le test."
+  },
+  "classes_pipeline": [
+    "legitime",
+    "spam"
+  ],
+  "taille_vocabulaire_tfidf": 10050,
+  "metriques": {
+    "baseline": {
+      "precision_spam": 0.0,
+      "recall_spam": 0.0,
+      "f1_spam": 0.0,
+      "accuracy": 0.875968992248062,
+      "confusion_matrix": {
+        "vrais_negatifs_legitime_ok": 904,
+        "faux_positifs_legitime_classe_spam": 0,
+        "faux_negatifs_spam_non_detecte": 128,
+        "vrais_positifs_spam_detecte": 0
+      }
+    },
+    "tfidf_multinomial_nb": {
+      "precision_spam": 0.9745762711864406,
+      "recall_spam": 0.8984375,
+      "f1_spam": 0.9349593495934959,
+      "accuracy": 0.9844961240310077,
+      "confusion_matrix": {
+        "vrais_negatifs_legitime_ok": 901,
+        "faux_positifs_legitime_classe_spam": 3,
+        "faux_negatifs_spam_non_detecte": 13,
+        "vrais_positifs_spam_detecte": 115
+      }
+    }
+  },
+  "versions": {
+    "python": "3.13.3",
+    "scikit-learn": "1.9.1"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "faux_positifs_legitime_classe_spam": [
+    {
+      "text": "Nokia phone is lovly..",
+      "reel": "legitime",
+      "predit": "spam"
+    },
+    {
+      "text": "K:)eng rocking in ashes:)",
+      "reel": "legitime",
+      "predit": "spam"
+    },
+    {
+      "text": "Unlimited texts. Limited minutes.",
+      "reel": "legitime",
+      "predit": "spam"
+    }
+  ],
+  "faux_negatifs_spam_non_detecte": [
+    {
+      "text": "Sorry I missed your call let's talk when you have the time. I'm on 07090201529",
+      "reel": "spam",
+      "predit": "legitime"
+    },
+    {
+      "text": "LookAtMe!: Thanks for your purchase of a video clip from LookAtMe!, you've been charged 35p. Think you can do better? Why not send a video in a MMSto 32323.",
+      "reel": "spam",
+      "predit": "legitime"
+    },
+    {
+      "text": "Babe: U want me dont u baby! Im nasty and have a thing 4 filthyguys. Fancy a rude time with a sexy bitch. How about we go slo n hard! Txt XXX SLO(4msgs)",
+      "reel": "spam",
+      "predit": "legitime"
+    },
+    {
+      "text": "(Bank of Granite issues Strong-Buy) EXPLOSIVE PICK FOR OUR MEMBERS *****UP OVER 300% *********** Nasdaq Symbol CDGT That is a $5.00 per..",
+      "reel": "spam",
+      "predit": "legitime"
+    },
+    {
+      "text": "Block Breaker now comes in deluxe format with new features and great graphics from T-Mobile. Buy for just £5 by replying GET BBDELUXE and take the challenge",
+      "reel": "spam",
+      "predit": "legitime"
+    }
+  ],
+  "total_faux_positifs": 3,
+  "total_faux_negatifs": 13
+}
