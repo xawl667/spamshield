@@ -1,0 +1,1 @@
+"""SpamShield - API FastAPI pour la détection de spam SMS."""
