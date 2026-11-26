@@ -90,6 +90,7 @@ spamshield/
 
 ## Équipe
 
-- [Nom 1]
-- [Nom 2]
-- [Nom 3]
+- Aaron
+- Coumba
+- Marc
+- Imad
