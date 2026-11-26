@@ -1,0 +1,43 @@
+# SpamShield - lancement local reproductible depuis la racine du projet.
+#
+#   Lancer :        docker compose up --build
+#   En arrière-plan: docker compose up --build -d
+#   Logs :          docker compose logs -f
+#   Arrêter :       docker compose down
+#
+#   Interface :     http://localhost:8501
+#   API (docs) :    http://localhost:8000/docs
+#
+# Si le module ASGI n'est pas `main:app` :
+#   API_MODULE=app.main:app docker compose up --build
+
+services:
+  api:
+    build:
+      context: .
+      target: api
+    environment:
+      API_MODULE: ${API_MODULE:-main:app}
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      target: frontend
+    environment:
+      # Dans Compose, on utilise le nom du service, pas localhost.
+      API_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
