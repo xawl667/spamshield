@@ -14,15 +14,13 @@ logger = logging.getLogger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Charge le modèle au démarrage, le stocke dans app.state.model."""
-    model_path = load_model.__globals__["get_model_path"]()
     try:
-        app.state.model = load_model(model_path)
-        logger.info("Modèle chargé avec succès depuis %s", model_path)
+        app.state.model = load_model()
+        logger.info("Modèle chargé avec succès")
     except FileNotFoundError as e:
         app.state.model = None
         logger.error("Modèle introuvable au démarrage : %s", e)
     yield
-    # Nettoyage si nécessaire
     app.state.model = None
 
 
